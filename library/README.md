@@ -9,10 +9,6 @@ ccIndexer 是一个为 OpenHarmony & HarmonyOS 设计，支持交互动效的索
 - 支持悬浮索引样式设置
 - 支持索引动效时长设置
 
-## 效果
-
-![](./img/example.gif)
-
 ## 依赖方式
 
 ```ts
