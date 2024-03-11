@@ -16,7 +16,7 @@ ccIndexer 是一个为 OpenHarmony & HarmonyOS 设计，支持交互动效的索
 ## 依赖方式
 
 ```ts
-ohpm install @seagazer/ccIndexer
+ohpm install @seagazer/ccindexer
 ```
 
 ## 接口能力
@@ -40,7 +40,7 @@ ohpm install @seagazer/ccIndexer
 ## 场景示例
 
 ```ts
-import { IndexerView } from '@seagazer/ccIndexer'
+import { IndexerView } from '@seagazer/ccindexer'
 
 const DEFAULT_INDEX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 

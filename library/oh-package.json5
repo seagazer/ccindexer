@@ -10,7 +10,7 @@
     "name": "seagazer",
     "email": "seagazer@qq.com"
   },
-  "name": "@seagazer/ccIndexer",
+  "name": "@seagazer/ccindexer",
   "description": "A custom indexer view with motion animation for OpenHarmony & HarmonyOS.",
   "main": "Index.ets",
   "repository": "https://github.com/seagazer/ccIndexer",
