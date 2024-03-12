@@ -45,7 +45,6 @@ const DEFAULT_INDEX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L
 @Component
 struct Index {
     @State selectedIndex: number = -1
-    private lastIndex: number = -1
     private scroller = new Scroller()
     private list = new Array<MockData>()
 
@@ -88,7 +87,6 @@ struct Index {
             .sticky(StickyStyle.Header)
             .onScrollIndex((start) => {
                 this.selectedIndex = start
-                this.lastIndex = start
             })
 
             // 使用IndexerView组件
