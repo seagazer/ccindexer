@@ -19,19 +19,20 @@ ohpm install @seagazer/ccindexer
 
 - IndexerView 索引器组件
 
-  | 属性                    | 类型           | 是否必填 | 默认值    | 说明                     |
-  | ----------------------- | -------------- | -------- | --------- | ------------------------ |
-  | textSize                | number         | 是       | 无        | 索引文本                 |
-  | selectedIndex           | number         | 是       | 无        | 当前选中的索引值         |
-  | indexArray              | Array\<string> | 否       | [#,A-Z]   | 索引数据，默认从#，A-Z   |
-  | heightLightColor        | ResourceColor  | 否       | #000000   | 当前选中的索引文本颜色   |
-  | normalColor             | ResourceColor  | 否       | #ff737373 | 当前未选中的索引文本颜色 |
-  | isShowFloatSelectedView | boolean        | 否       | true      | 是否显示悬浮索引视图     |
-  | floatSelectedViewSize   | number         | 否       | 32        | 悬浮索引视图尺寸         |
-  | floatSelectedTextColor  | ResourceColor  | 否       | #ffffff   | 悬浮索引视图文本颜色     |
-  | floatSelectedViewColor  | ResourceColor  | 否       | #000000   | 悬浮索引视图背景颜色     |
-  | animationDuration       | number         | 否       | 300       | 交互动效时长             |
-  | animationTranslation    | number         | 否       | 32        | 索引动效便宜幅度         |
+  | 属性                    | 类型                    | 是否必填 | 默认值    | 说明                     |
+  | ----------------------- | ----------------------- | -------- | --------- | ------------------------ |
+  | textSize                | number                  | 是       | 无        | 索引文本                 |
+  | selectedIndex           | number                  | 是       | 无        | 当前选中的索引值         |
+  | indexArray              | Array\<string>          | 否       | [#,A-Z]   | 索引数据，默认从#，A-Z   |
+  | heightLightColor        | ResourceColor           | 否       | #000000   | 当前选中的索引文本颜色   |
+  | normalColor             | ResourceColor           | 否       | #ff737373 | 当前未选中的索引文本颜色 |
+  | isShowFloatSelectedView | boolean                 | 否       | true      | 是否显示悬浮索引视图     |
+  | floatSelectedViewSize   | number                  | 否       | 32        | 悬浮索引视图尺寸         |
+  | floatSelectedTextColor  | ResourceColor           | 否       | #ffffff   | 悬浮索引视图文本颜色     |
+  | floatSelectedViewColor  | ResourceColor           | 否       | #000000   | 悬浮索引视图背景颜色     |
+  | animationDuration       | number                  | 否       | 300       | 交互动效时长             |
+  | animationTranslation    | number                  | 否       | 32        | 索引动效便宜幅度         |
+  | onIndexChanged          | (index: number) => void | 否       | null      | 索引变更回调             |
 
 ## 场景示例
 
@@ -43,7 +44,7 @@ const DEFAULT_INDEX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L
 @Entry
 @Component
 struct Index {
-    @Watch('onSelectedChanged') @State selectedIndex: number = -1
+    @State selectedIndex: number = -1
     private lastIndex: number = -1
     private scroller = new Scroller()
     private list = new Array<MockData>()
@@ -57,12 +58,6 @@ struct Index {
                 array.push(data)
             }
             this.list.push(new MockData(groupId, array))
-        }
-    }
-
-    onSelectedChanged() {
-        if (this.lastIndex != this.selectedIndex) {
-            this.scroller.scrollToIndex(this.selectedIndex, false)
         }
     }
 
@@ -105,7 +100,10 @@ struct Index {
                     heightLightColor: "#ff419ee5", // 选中索引颜色
                     normalColor: "#ffa0a0a0", // 未选中索引颜色
                     floatSelectedTextColor: "#ffffff", // 悬浮索引文本颜色
-                    floatSelectedViewColor: "#ff419ee5" // 悬浮索引背景色
+                    floatSelectedViewColor: "#ff419ee5", // 悬浮索引背景色
+                    onIndexChanged: (index) => { // 索引选中监听
+                        this.scroller.scrollToIndex(index)
+                    }
                 })
                 .width(24)
                 .height("60%")
