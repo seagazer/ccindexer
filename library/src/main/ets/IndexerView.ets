@@ -1,11 +1,14 @@
-export const DEFAULT_INDEX = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+const DEFAULT_INDEX = ['#', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 /**
  * A custom indexer view with motion animation.
  */
 @Component
 export struct IndexerView {
-    indexArray: Array<string> = DEFAULT_INDEX
+    /**
+     * The index data of the indexer view.
+     */
+    @Prop indexArray: Array<string>
     /**
      * The size of the char text.
      */
@@ -13,7 +16,7 @@ export struct IndexerView {
     /**
      * The value to observe the selected index.
      */
-    @Link selectedIndex: number
+    @Prop selectedIndex: number
     @State isPressed: boolean = false
     @State charWidth: number = 0
     @State charHeight: number = 0
@@ -53,6 +56,10 @@ export struct IndexerView {
      * The translation size of animation.
      */
     animationTranslation: number = 32
+    /**
+     * The observe to watch the index changed by user.
+     */
+    onIndexChanged: ((index: number) => void) | null = null
 
     build() {
         Stack() {
@@ -93,7 +100,7 @@ export struct IndexerView {
                     .backgroundColor(this.floatSelectedViewColor)
                     .position({
                         x: -this.animationTranslation - this.floatSelectedViewSize * 1.2,
-                        y: this.selectedIndex * this.charHeight - this.charHeight * 0.5
+                        y: this.selectedIndex * this.charHeight - (this.floatSelectedViewSize - this.charHeight) * 0.5
                     })
                     .animation({
                         duration: this.animationDuration
@@ -120,6 +127,7 @@ export struct IndexerView {
                     } else {
                         this.selectedIndex = Math.round(currentY / this.charHeight)
                     }
+                    this.onIndexChanged?.(this.selectedIndex)
                     break
                 case TouchType.Up:
                 case TouchType.Cancel:

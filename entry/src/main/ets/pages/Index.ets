@@ -5,7 +5,7 @@ const DEFAULT_INDEX = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L
 @Entry
 @Component
 struct Index {
-    @Watch('onSelectedChanged') @State selectedIndex: number = -1
+    @State selectedIndex: number = -1
     private lastIndex: number = -1
     private scroller = new Scroller()
     private list = new Array<MockData>()
@@ -19,12 +19,6 @@ struct Index {
                 array.push(data)
             }
             this.list.push(new MockData(groupId, array))
-        }
-    }
-
-    onSelectedChanged() {
-        if (this.lastIndex != this.selectedIndex) {
-            this.scroller.scrollToIndex(this.selectedIndex, false)
         }
     }
 
@@ -72,7 +66,10 @@ struct Index {
                     heightLightColor: "#ff419ee5",
                     normalColor: "#ffa0a0a0",
                     floatSelectedTextColor: "#ffffff",
-                    floatSelectedViewColor: "#ff419ee5"
+                    floatSelectedViewColor: "#ff419ee5",
+                    onIndexChanged: (index) => {
+                        this.scroller.scrollToIndex(index)
+                    }
                 })
                 .width(24)
                 .height("60%")

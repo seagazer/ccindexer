@@ -4,7 +4,8 @@
   "keywords": [
     "索引器",
     "字母索引",
-    "列表"
+    "列表",
+    "索引选择"
   ],
   "author": {
     "name": "seagazer",
@@ -14,7 +15,7 @@
   "description": "A custom indexer view with motion animation for OpenHarmony & HarmonyOS.",
   "main": "Index.ets",
   "repository": "https://github.com/seagazer/ccIndexer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/seagazer",
   "dependencies": {}
 }
