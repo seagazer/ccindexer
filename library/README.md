@@ -23,7 +23,7 @@ ohpm install @seagazer/ccindexer
   | ----------------------- | ----------------------- | -------- | --------- | ------------------------ |
   | textSize                | number                  | 是       | 无        | 索引文本                 |
   | selectedIndex           | number                  | 是       | 无        | 当前选中的索引值         |
-  | indexArray              | Array\<string>          | 否       | [#,A-Z]   | 索引数据，默认从#，A-Z   |
+  | indexArray              | Array\<string>          | 是       | 无        | 索引数据                 |
   | heightLightColor        | ResourceColor           | 否       | #000000   | 当前选中的索引文本颜色   |
   | normalColor             | ResourceColor           | 否       | #ff737373 | 当前未选中的索引文本颜色 |
   | isShowFloatSelectedView | boolean                 | 否       | true      | 是否显示悬浮索引视图     |
