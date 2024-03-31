@@ -25,7 +25,7 @@ ohpm install @seagazer/ccindexer
 
   | 属性                    | 类型                    | 是否必填 | 默认值    | 说明                     |
   | ----------------------- | ----------------------- | -------- | --------- | ------------------------ |
-  | textSize                | number                  | 是       | 无        | 索引文本                 |
+  | textSize                | number                  | 是       | 无        | 索引文本大小               |
   | selectedIndex           | number                  | 是       | 无        | 当前选中的索引值         |
   | indexArray              | Array\<string>          | 是       | 无        | 索引数据                 |
   | heightLightColor        | ResourceColor           | 否       | #000000   | 当前选中的索引文本颜色   |
@@ -35,7 +35,7 @@ ohpm install @seagazer/ccindexer
   | floatSelectedTextColor  | ResourceColor           | 否       | #ffffff   | 悬浮索引视图文本颜色     |
   | floatSelectedViewColor  | ResourceColor           | 否       | #000000   | 悬浮索引视图背景颜色     |
   | animationDuration       | number                  | 否       | 300       | 交互动效时长             |
-  | animationTranslation    | number                  | 否       | 32        | 索引动效便宜幅度         |
+  | animationTranslation    | number                  | 否       | 32        | 索引动效偏移距离         |
   | onIndexChanged          | (index: number) => void | 否       | null      | 索引变更回调             |
 
 ## 场景示例
