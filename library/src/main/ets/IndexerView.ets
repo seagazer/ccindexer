@@ -23,7 +23,7 @@ export struct IndexerView {
     /**
      * The color of current selected index.
      */
-    heightLightColor: ResourceColor = "#000000"
+    selectedColor: ResourceColor = "#000000"
     /**
      * The color of unselected index.
      */
@@ -66,7 +66,7 @@ export struct IndexerView {
                 ForEach(this.indexArray, (char: string, index: number) => {
                     Text(char)
                         .fontSize(this.textSize)
-                        .fontColor(this.selectedIndex == index ? this.heightLightColor : this.normalColor)
+                        .fontColor(this.selectedIndex == index ? this.selectedColor : this.normalColor)
                         .fontWeight(this.selectedIndex == index ? FontWeight.Bold : FontWeight.Normal)
                         .textAlign(TextAlign.Center)
                         .width("100%")

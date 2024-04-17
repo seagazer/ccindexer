@@ -28,7 +28,7 @@ ohpm install @seagazer/ccindexer
   | textSize                | number                  | 是       | 无        | 索引文本                 |
   | selectedIndex           | number                  | 是       | 无        | 当前选中的索引值         |
   | indexArray              | Array\<string>          | 是       | 无        | 索引数据                 |
-  | heightLightColor        | ResourceColor           | 否       | #000000   | 当前选中的索引文本颜色   |
+  | selectedColor        | ResourceColor           | 否       | #000000   | 当前选中的索引文本颜色   |
   | normalColor             | ResourceColor           | 否       | #ff737373 | 当前未选中的索引文本颜色 |
   | isShowFloatSelectedView | boolean                 | 否       | true      | 是否显示悬浮索引视图     |
   | floatSelectedViewSize   | number                  | 否       | 32        | 悬浮索引视图尺寸         |
@@ -99,7 +99,7 @@ struct Index {
                     indexArray: DEFAULT_INDEX, // 索引数据
                     selectedIndex: this.selectedIndex, // 当前选中索引
                     textSize: 12, // 索引文本尺寸
-                    heightLightColor: "#ff419ee5", // 选中索引颜色
+                    selectedColor: "#ff419ee5", // 选中索引颜色
                     normalColor: "#ffa0a0a0", // 未选中索引颜色
                     floatSelectedTextColor: "#ffffff", // 悬浮索引文本颜色
                     floatSelectedViewColor: "#ff419ee5", // 悬浮索引背景色

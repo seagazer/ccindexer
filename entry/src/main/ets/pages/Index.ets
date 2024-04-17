@@ -35,9 +35,9 @@ struct Index {
     build() {
         Row() {
             List({ scroller: this.scroller }) {
-                ForEach(this.list, (data: MockData, index: number) => {
+                ForEach(this.list, (data: MockData) => {
                     ListItemGroup({ header: this.listHeader(data) }) {
-                        ForEach(data.dataList, (item: string, index: number) => {
+                        ForEach(data.dataList, (item: string) => {
                             ListItem() {
                                 Text(item)
                                     .width("100%")
@@ -61,7 +61,7 @@ struct Index {
                     indexArray: DEFAULT_INDEX,
                     selectedIndex: this.selectedIndex,
                     textSize: 12,
-                    heightLightColor: "#ff419ee5",
+                    selectedColor: "#ff419ee5",
                     normalColor: "#ffa0a0a0",
                     floatSelectedTextColor: "#ffffff",
                     floatSelectedViewColor: "#ff419ee5",
