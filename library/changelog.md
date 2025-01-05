@@ -1,3 +1,6 @@
+# 1.0.3
+- 适配OpenHarmony 5.0.1-Release和HarmonyOS Next
+
 # 1.0.2
 
 - 修复一些问题

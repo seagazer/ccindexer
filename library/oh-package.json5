@@ -15,7 +15,7 @@
   "description": "A custom indexer view with motion animation for OpenHarmony & HarmonyOS.",
   "main": "Index.ets",
   "repository": "https://github.com/seagazer/ccIndexer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "homepage": "https://github.com/seagazer",
   "dependencies": {}
 }
